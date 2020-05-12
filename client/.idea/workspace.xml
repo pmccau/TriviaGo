@@ -1,7 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4608ce6d-ec0c-4127-8963-5e94187839cc" name="Default Changelist" comment="" />
+    <list default="true" id="4608ce6d-ec0c-4127-8963-5e94187839cc" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../heroku.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.idea/server.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/assets/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/assets/Questions.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Category.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Game.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Lobby.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Question.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Round.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/data/Team.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/datamanagement/Utility.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/go.mod" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/go.sum" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/main.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/middleware/middleware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/middleware/mongoware.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/models/models.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/processor/QuestionAnalyzer.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/processor/Trivia.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../server/router/router.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,7 +55,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../server" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -39,11 +67,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1589240533360</updated>
-      <workItem from="1589240537036" duration="3763000" />
+      <workItem from="1589240537036" duration="4314000" />
+      <workItem from="1589247578105" duration="133000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="2660" y="275" key="FileChooserDialogImpl" timestamp="1589247104684">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2660" y="275" key="FileChooserDialogImpl/0.0.1280.680/1920.0.1920.1040@1920.0.1920.1040" timestamp="1589247104684" />
   </component>
 </project>
