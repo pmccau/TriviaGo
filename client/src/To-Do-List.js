@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import { Card, Header, Form, Input, Icon } from "semantic-ui-react";
+import { Card, Header, Form, Input } from "semantic-ui-react";
 
 let endpoint = "http://localhost:8080";
 
@@ -45,11 +45,13 @@ class ToDoList extends Component {
   };
 
   getCategories = () => {
-    axios.get(endpoint + "api/getCategories").then(res => {
+    axios.get(endpoint + "/api/getCategories").then(res => {
       if (res.data) {
-        this.setState({
-          categories: res.data
-        })
+        console.log("CATEGORIES BELOW")
+        console.log(res.data)
+        // this.setState({
+        //   categories: res.data
+        // })
       }
     })
   }
@@ -62,9 +64,9 @@ class ToDoList extends Component {
             // return (<div className={"row"} key={question.Text}>{ question.Text }</div>
             // )
             let color = "green";
-            if (question.Difficulty == "medium") {
+            if (question.Difficulty === "medium") {
               color = "yellow";
-            } else if (question.Difficulty == "hard") {
+            } else if (question.Difficulty === "hard") {
               color = "red";
             }
             return (

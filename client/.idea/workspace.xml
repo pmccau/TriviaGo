@@ -2,33 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="4608ce6d-ec0c-4127-8963-5e94187839cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../heroku.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/server.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/README.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/assets/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/assets/Questions.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Category.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Game.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Lobby.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Question.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Round.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/data/Team.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/datamanagement/Utility.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/go.mod" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/go.sum" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/main.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/middleware/middleware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/middleware/mongoware.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/models/models.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/processor/QuestionAnalyzer.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/processor/Trivia.go" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../server/router/router.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../server/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../server/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../server/middleware/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/../server/middleware/middleware.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +43,7 @@
       <option name="presentableId" value="Default" />
       <updated>1589240533360</updated>
       <workItem from="1589240537036" duration="4314000" />
-      <workItem from="1589247578105" duration="133000" />
+      <workItem from="1589247578105" duration="514000" />
     </task>
     <servers />
   </component>
