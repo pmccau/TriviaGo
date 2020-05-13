@@ -12,7 +12,10 @@ class ToDoList extends Component {
       teamName: "",
       items: [],
       questions: [],
-      categories: []
+      categories: [],
+      numQuestions: 10,
+      difficulty: "",
+      category: "",
     };
   }
 
@@ -22,23 +25,27 @@ class ToDoList extends Component {
   }
 
   onChange = event => {
+    console.log([event.target.name] + ": " + event.target.value)
     this.setState({
       [event.target.name]: event.target.value
     });
   };
 
   onSubmit = () => {
-    let { teamName } = this.state;
-    if (teamName) {
+    let { numQuestions } = this.state;
+    let { difficulty } = this.state;
+    let { category } = this.state;
+    console.log("numQuestions=" + numQuestions)
+    if (numQuestions && difficulty && category) {
       axios.post(endpoint + "/api/test",
-          { teamName },
+          { numQuestions, difficulty, category },
           { 
             headers: {
               "Content-Type": "application/x-www-form-urlencoded"
             }
           }
         ).then(res => {
-          this.setState({ teamName: "" });
+          this.setState({ numQuestions: 10 });
           console.log(res);
         });
     }
@@ -49,9 +56,16 @@ class ToDoList extends Component {
       if (res.data) {
         console.log("CATEGORIES BELOW")
         console.log(res.data)
-        // this.setState({
-        //   categories: res.data
-        // })
+        this.setState({
+          categories: res.data.map(category => {
+            return (<a
+                key={ category.ID }
+                value={ this.state.category }
+                name="category"
+                onClick={ this.onChange }
+                href="#">{ category.Name }</a>)
+          })
+        })
       }
     })
   }
@@ -61,8 +75,8 @@ class ToDoList extends Component {
       if (res.data) {
         this.setState({
           questions: res.data.map(question => {
-            // return (<div className={"row"} key={question.Text}>{ question.Text }</div>
-            // )
+            return (<div className={"row"} key={question.Text}>{ question.Text }</div>
+            )
             let color = "green";
             if (question.Difficulty === "medium") {
               color = "yellow";
@@ -84,95 +98,16 @@ class ToDoList extends Component {
     })
   }
 
-  // getTask = () => {
-  //   axios.get(endpoint + "/api/task").then(res => {
-  //     console.log(res);
-  //     if (res.data) {
-  //       this.setState({
-  //         items: res.data.map(item => {
-  //           let color = "yellow";
+  getCategoryDropdowns = () => {
+    console.log(this.state.categories)
+    var output = ""
+    for (var i = 0; i < this.state.categories.length; i++) {
+      output += <a href="#">{ this.state.categories[i].name }</a>
+    }
+    return output
+  }
 
-  //           if (item.status) {
-  //             color = "green";
-  //           }
-  //           return (
-  //             <Card key={item._id} color={color} fluid>
-  //               <Card.Content>
-  //                 <Card.Header textAlign="left">
-  //                   <div style={{ wordWrap: "break-word" }}>{item.task}</div>
-  //                 </Card.Header>
 
-  //                 <Card.Meta textAlign="right">
-  //                   <Icon
-  //                     name="check circle"
-  //                     color="green"
-  //                     onClick={() => this.updateTask(item._id)}
-  //                   />
-  //                   <span style={{ paddingRight: 10 }}>Done</span>
-  //                   <Icon
-  //                     name="undo"
-  //                     color="yellow"
-  //                     onClick={() => this.undoTask(item._id)}
-  //                   />
-  //                   <span style={{ paddingRight: 10 }}>Undo</span>
-  //                   <Icon
-  //                     name="delete"
-  //                     color="red"
-  //                     onClick={() => this.deleteTask(item._id)}
-  //                   />
-  //                   <span style={{ paddingRight: 10 }}>Delete</span>
-  //                 </Card.Meta>
-  //               </Card.Content>
-  //             </Card>
-  //           );
-  //         })
-  //       });
-  //     } else {
-  //       this.setState({
-  //         items: []
-  //       });
-  //     }
-  //   });
-  // };
-
-  // updateTask = id => {
-  //   axios
-  //     .put(endpoint + "/api/task/" + id, {
-  //       headers: {
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //       }
-  //     })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.getTask();
-  //     });
-  // };
-
-  // undoTask = id => {
-  //   axios
-  //     .put(endpoint + "/api/undoTask/" + id, {
-  //       headers: {
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //       }
-  //     })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.getTask();
-  //     });
-  // };
-
-  // deleteTask = id => {
-  //   axios
-  //     .delete(endpoint + "/api/deleteTask/" + id, {
-  //       headers: {
-  //         "Content-Type": "application/x-www-form-urlencoded"
-  //       }
-  //     })
-  //     .then(res => {
-  //       console.log(res);
-  //       this.getTask();
-  //     });
-  // };
   render() {
     return (
       <div>
@@ -181,18 +116,50 @@ class ToDoList extends Component {
             trivia.go
           </Header>
         </div>
+
+        <div className="navbar">
+          <a href="#home">Home</a>
+          <a href="#news">News</a>
+          <div className="dropdown" value={"test1"}>
+            <button className="dropbtn" onClick={this.onChange} value={"abcd"}>Categories
+              <i className="fa fa-caret-down"></i>
+            </button>
+            <div className="dropdown-content" value={"test"}>
+              {this.state.categories}
+            </div>
+          </div>
+        </div>
+
         <div className="row">
-          <Form onSubmit={this.onSubmit}>
-            <Input
+
+          <Input
+            type="number"
+            name="numQuestions"
+            onChange={this.onChange}
+            value={this.state.numQuestions}
+            fluid
+            placeholder={10}
+          />
+          <Input
               type="text"
-              name="teamName"
+              name="category"
               onChange={this.onChange}
-              value={this.state.teamName}
+              value={this.state.category}
               fluid
-              placeholder="Enter a team name..."
+              placeholder="category: ex., 'General Knowledge'"
+          />
+
+        <Form onSubmit={this.onSubmit}>
+          <Input
+                type="text"
+                name="difficulty"
+                onChange={this.onChange}
+                value={this.state.difficulty}
+                fluid
+                placeholder="Easy"
             />
-            {/* <Button >Create teamName</Button> */}
-          </Form>
+        </Form>
+
         </div>
         <div className="row">
           <Card.Group>{this.state.questions}</Card.Group>
