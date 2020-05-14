@@ -30,9 +30,11 @@ func main() {
 	//questions := middleware.GetAllDocuments(ctx, questionsCollection)
 	//fmt.Println(questions)
 	//
+
 	r := router.Router()
 	fmt.Println("Starting server on port 8080...")
-	log.Fatal(http.ListenAndServe(":8080", r))
-	//
-	//defer client.Disconnect(ctx)
+	err := http.ListenAndServe(":8080", r)
+	if err != nil {
+		log.Fatal("ListenAndServe:", err)
+	}
 }

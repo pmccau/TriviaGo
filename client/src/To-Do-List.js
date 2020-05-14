@@ -13,7 +13,9 @@ class ToDoList extends Component {
       items: [],
       questions: [],
       categories: [],
+      categoryID: "",
       numQuestions: 10,
+      questionType: "",
       difficulty: "",
       category: "",
     };
@@ -35,10 +37,11 @@ class ToDoList extends Component {
     let { numQuestions } = this.state;
     let { difficulty } = this.state;
     let { category } = this.state;
+    let { questionType } = this.state;
     console.log("numQuestions=" + numQuestions)
-    if (numQuestions && difficulty && category) {
+    if (numQuestions && difficulty && category && questionType) {
       axios.post(endpoint + "/api/test",
-          { numQuestions, difficulty, category },
+          { numQuestions, difficulty, category, questionType },
           { 
             headers: {
               "Content-Type": "application/x-www-form-urlencoded"
@@ -60,7 +63,7 @@ class ToDoList extends Component {
           categories: res.data.map(category => {
             return (<a
                 key={ category.ID }
-                value={ this.state.category }
+                value={ this.state.categoryID }
                 name="category"
                 onClick={ this.onChange }
                 href="#">{ category.Name }</a>)
@@ -147,6 +150,14 @@ class ToDoList extends Component {
               value={this.state.category}
               fluid
               placeholder="category: ex., 'General Knowledge'"
+          />
+          <Input
+              type="text"
+              name="questionType"
+              onChange={this.onChange}
+              value={this.state.questionType}
+              fluid
+              placeholder="questionType: 'true/false', 'multiple choice'"
           />
 
         <Form onSubmit={this.onSubmit}>
